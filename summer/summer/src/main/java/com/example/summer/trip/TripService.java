@@ -19,4 +19,8 @@ public class TripService {
     public boolean registerProduct(String product) {
         return tripRepository.saveProduct(product).equals(product);
     }
+
+    public String getProductById(String id) {
+        return tripRepository.findProductById(id);
+    }
 }

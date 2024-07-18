@@ -3,6 +3,7 @@ package com.example.summer.trip;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 @Component
 public class TripRepository {
@@ -22,5 +23,9 @@ public class TripRepository {
     public String saveProduct(String name) {
         tripTable.put(idx++, name);
         return tripTable.get(idx-1);
+    }
+
+    public String findProductById(String id) {
+        return tripTable.get(Integer.parseInt(id));
     }
 }
