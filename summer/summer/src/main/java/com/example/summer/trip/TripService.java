@@ -23,4 +23,8 @@ public class TripService {
     public String getProductById(String id) {
         return tripRepository.findProductById(id);
     }
+
+    public String registerHotel(Hotel hotelVO) {
+        return tripRepository.save(hotelVO).getName();
+    }
 }

@@ -3,13 +3,13 @@ package com.example.summer.trip;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component
 public class TripRepository {
 //    map은 db라 변수명은 스네이크 케이스로 하기도 함
 //    private Map<Integer, String> trip_table = new HashMap<>();
     private Map<Integer, String> tripTable = new HashMap<>();
+    private Map<Integer, Hotel> hotelTable = new HashMap<>();
     private int idx = 0;
 
     TripRepository(){
@@ -27,5 +27,10 @@ public class TripRepository {
 
     public String findProductById(String id) {
         return tripTable.get(Integer.parseInt(id));
+    }
+
+    public Hotel save(Hotel hotelVO) {
+        hotelTable.put(idx++, hotelVO);
+        return hotelTable.get(idx-1);
     }
 }
