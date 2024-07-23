@@ -47,4 +47,7 @@ public class AccommodationService {
     }
 
 
+    public String getAccommodationName(int id) {
+        return accommodationRepository.getAccommodation(id);
+    }
 }

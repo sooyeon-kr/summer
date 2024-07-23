@@ -46,4 +46,11 @@ public class AccommodationRepository {
     public List<Accommodation> findAllAccomodation() {
         return accommodationTable.values().stream().toList();
     }
+
+    public String getAccommodation(int id) {
+        if(accommodationTable.get(id) != null)
+            return accommodationTable.get(id).getName();
+        else
+            return null;
+    }
 }
