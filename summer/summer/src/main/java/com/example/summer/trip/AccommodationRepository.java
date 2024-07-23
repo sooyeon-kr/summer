@@ -1,6 +1,7 @@
 package com.example.summer.trip;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Component;
 
@@ -25,8 +26,8 @@ public class AccommodationRepository {
         return tripTable.get(idx-1);
     }
 
-    public String findProductById(String id) {
-        return tripTable.get(Integer.parseInt(id));
+    public Accommodation getAccomodationById(String id) {
+        return accommodationTable.get(Integer.parseInt(id));
     }
 
     public Accommodation save(Accommodation hotelVO) {
@@ -40,5 +41,9 @@ public class AccommodationRepository {
         return accommodationTable.get(idx-1);
 
 
+    }
+
+    public List<Accommodation> findAllAccomodation() {
+        return accommodationTable.values().stream().toList();
     }
 }

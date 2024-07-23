@@ -1,5 +1,7 @@
 package com.example.summer.trip;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +16,7 @@ public class AccommodationService {
         this.accommodationRepository = accommodationRepository;
     }
 
+
     public String getProduct() {
         return tripRepository.getProduct();
     }
@@ -22,9 +25,9 @@ public class AccommodationService {
         return tripRepository.saveProduct(product).equals(product);
     }
 
-    public String getProductById(String id) {
-        return tripRepository.findProductById(id);
-    }
+//    public String getAccomodationById(String id) {
+//        return tripRepository.getAccomodationById(id);
+//    }
 
     public String registerHotel(Accommodation hotelVO) {
         return tripRepository.save(hotelVO).getName();
@@ -33,4 +36,15 @@ public class AccommodationService {
     public Accommodation addAccommodation(AccommodationAddRequest accommodation) {
         return accommodationRepository.saveAccommodation(accommodation.to());
     }
+
+    public List<AccommodationGetAllResponse> getAllAccommodation() {
+        List<Accommodation> accommodations = accommodationRepository.findAllAccomodation();
+        List<AccommodationGetAllResponse> responses = accommodations.stream()
+                .map(AccommodationGetAllResponse::from)
+                .collect(Collectors.toList());
+
+        return responses;
+    }
+
+
 }
