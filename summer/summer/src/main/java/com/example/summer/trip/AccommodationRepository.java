@@ -5,14 +5,14 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TripRepository {
+public class AccommodationRepository {
 //    map은 db라 변수명은 스네이크 케이스로 하기도 함
 //    private Map<Integer, String> trip_table = new HashMap<>();
     private Map<Integer, String> tripTable = new HashMap<>();
-    private Map<Integer, Hotel> hotelTable = new HashMap<>();
+    private Map<Integer, Accommodation> accommodationTable = new HashMap<>();
     private int idx = 0;
 
-    TripRepository(){
+    AccommodationRepository(){
         tripTable.put(0, "파라스파라 서울");
     }
 
@@ -29,8 +29,16 @@ public class TripRepository {
         return tripTable.get(Integer.parseInt(id));
     }
 
-    public Hotel save(Hotel hotelVO) {
-        hotelTable.put(idx++, hotelVO);
-        return hotelTable.get(idx-1);
+    public Accommodation save(Accommodation hotelVO) {
+        accommodationTable.put(idx++, hotelVO);
+        return accommodationTable.get(idx-1);
+    }
+
+    public Accommodation saveAccommodation(Accommodation accommodation) {
+        accommodation.setId(idx);
+        accommodationTable.put(idx++, accommodation);
+        return accommodationTable.get(idx-1);
+
+
     }
 }

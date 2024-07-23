@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TripService {
-    private TripRepository tripRepository;
+public class AccommodationService {
+    private final AccommodationRepository accommodationRepository;
+    private AccommodationRepository tripRepository;
 
     @Autowired
-    TripService(TripRepository tripRepository) {
+    AccommodationService(AccommodationRepository tripRepository, AccommodationRepository accommodationRepository) {
         this.tripRepository = tripRepository;
+        this.accommodationRepository = accommodationRepository;
     }
 
     public String getProduct() {
@@ -24,7 +26,11 @@ public class TripService {
         return tripRepository.findProductById(id);
     }
 
-    public String registerHotel(Hotel hotelVO) {
+    public String registerHotel(Accommodation hotelVO) {
         return tripRepository.save(hotelVO).getName();
+    }
+
+    public Accommodation addAccommodation(AccommodationAddRequest accommodation) {
+        return accommodationRepository.saveAccommodation(accommodation.to());
     }
 }
