@@ -1,6 +1,7 @@
 package com.example.summer.trip;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -48,6 +49,11 @@ public class AccommodationService {
 
 
     public String getAccommodationName(int id) {
-        return accommodationRepository.getAccommodation(id);
+        Optional<Accommodation> getAccommodation = accommodationRepository.getAccommodation(id);
+//        return getAccommodation.orElse(new Accommodation("없는 숙소")).getName();
+        return accommodationRepository.getAccommodation(id)
+                .map(Accommodation::getName)
+                .orElse("없는 숙소");
+
     }
 }
