@@ -13,6 +13,10 @@ public class Room {
         this.capacity = capacity;
     }
 
+    public Room() {
+
+    }
+
     public String getType() {
         return type;
     }
@@ -43,5 +47,15 @@ public class Room {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+}
+
+class NullRoom extends Room {
+    NullRoom(){
+        super();
+    }
+    @Override
+    public String getType() {
+        return "null";
     }
 }

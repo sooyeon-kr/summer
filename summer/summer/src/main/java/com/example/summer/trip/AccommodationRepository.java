@@ -1,9 +1,11 @@
 package com.example.summer.trip;
 
+import com.example.summer.exception.AccommodationNotFoundException;
 import java.nio.file.OpenOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
 
@@ -58,8 +60,9 @@ public class AccommodationRepository {
     public String testExceptionAccommodation(int id) {
         try{
             Accommodation foundAccommodation = accommodationTable.get(id);
-            return foundAccommodation.getName();
-        }catch (Exception e){
+            if(foundAccommodation != null) return foundAccommodation.getName();
+            throw new AccommodationNotFoundException("accommodation error");
+        }catch (AccommodationNotFoundException e){
             System.out.println(e.getMessage());
             return "exception!!"; //frontend 와 결정해야 함
 
