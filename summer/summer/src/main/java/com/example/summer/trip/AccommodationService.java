@@ -56,4 +56,8 @@ public class AccommodationService {
                 .orElse("없는 숙소");
 
     }
+
+    public String testExceptionAccommodation(int id) {
+        return accommodationRepository.testExceptionAccommodation(id);
+    }
 }

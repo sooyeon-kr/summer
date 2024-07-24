@@ -41,8 +41,6 @@ public class AccommodationRepository {
         accommodation.setId(idx);
         accommodationTable.put(idx++, accommodation);
         return accommodationTable.get(idx-1);
-
-
     }
 
     public List<Accommodation> findAllAccomodation() {
@@ -50,11 +48,21 @@ public class AccommodationRepository {
     }
 
     public Optional<Accommodation> getAccommodation(int id) {
-
         Accommodation foundAccommodation = accommodationTable.get(id);
         Optional<Accommodation> optional = Optional.ofNullable(foundAccommodation);
         //NPE가 터지지 않도록, 한겹싸서 보내주는 건 어때? null 포장 -> 포장을 까기전까지는 null인지 모를거야
 //        JAVA에서 이 포장지를 Optional이라고 함, JPA는 포장 객체를 한겹싸서 줌 그래서 JPA는 옵셔널로 반환해주기때문에 세트로 다니는 것 뿐
         return optional;
+    }
+
+    public String testExceptionAccommodation(int id) {
+        try{
+            Accommodation foundAccommodation = accommodationTable.get(id);
+            return foundAccommodation.getName();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return "exception!!"; //frontend 와 결정해야 함
+
+        }
     }
 }
