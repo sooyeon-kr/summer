@@ -14,8 +14,8 @@ public class GlobalExceptionHandler {
 //    로거를 새성할 수 있는 곳이 팩토리
 //    private final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
-    @ExceptionHandler(value = RoomNotFoundException.class)
-    public String catchRoomNotFoundException(RoomNotFoundException e){
+    @ExceptionHandler(value = NotFound404Exception.class)
+    public String catchRoomNotFoundException(NotFound404Exception e){
 //        logger.error("exception class: {}", e.getClass());
 //        logger.error("exception class: " , e);
         log.error(e.getMessage());
