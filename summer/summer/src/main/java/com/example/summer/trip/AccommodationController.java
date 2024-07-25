@@ -1,10 +1,14 @@
 package com.example.summer.trip;
 
+import com.example.summer.exception.RoomNotFoundException;
+
 import java.util.List;
 import javax.swing.text.html.parser.Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -87,5 +91,7 @@ public class AccommodationController {
     public String getAccommodationName(@PathVariable(value = "id") int id){
         return accommodationService.getAccommodationName(id);
     }
+
+
 
 }

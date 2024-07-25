@@ -10,12 +10,13 @@ public class RoomService {
     private RoomRepository roomRepository;
 
     public Room getRoom(int id){
-        try{
-            return roomRepository.getRoom(id);
-        }catch(RoomNotFoundException e){
-            System.out.println(e.getMessage());
-            return new NullRoom();
-        }
+        return roomRepository.getRoom(id);
+//        try{
+//            return roomRepository.getRoom(id);
+//        }catch(RoomNotFoundException e){
+//            System.out.println(e.getMessage());
+//            return new NullRoom();
+//        }
 
     }
 }

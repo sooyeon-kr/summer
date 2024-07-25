@@ -18,7 +18,8 @@ public class RoomRepository {
             throw new RoomNotFoundException();
         }catch (RoomNotFoundException e){
             System.out.println(e.getMessage());
-            return new NullRoom();
+//            return new NullRoom();
+            throw e;
         }
     }
 }
