@@ -1,8 +1,6 @@
 package com.example.summer.exception;
 
-import java.util.NoSuchElementException;
-
-public class RoomNotFoundException extends NoSuchElementException {
+public class RoomNotFoundException extends NotFound404Exception {
 
     public RoomNotFoundException() {
         super("RoomNotFoundException");
