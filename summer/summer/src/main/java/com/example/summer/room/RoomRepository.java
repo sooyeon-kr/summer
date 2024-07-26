@@ -1,6 +1,7 @@
 package com.example.summer.room;
 
 import com.example.summer.exception.RoomNotFoundException;
+import jakarta.persistence.EntityManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -15,20 +16,18 @@ import org.springframework.stereotype.Repository;
 @Component
 public class RoomRepository {
 
-    @Autowired
-    DataSource dataSource;
+    EntityManager entityManager;
 
     Map<Integer, Room> roomTable = new HashMap<>();
     int idx = 0;
 
-
-    public void makeConnection(){
-        System.out.println(DataSourceUtils.getConnection(dataSource));
+    @Autowired
+    public RoomRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     public Room getRoom(int id)  {
 
-        makeConnection();
         Room foundRoom = roomTable.get(id);
         try{
             if(foundRoom != null) return foundRoom;
@@ -38,5 +37,9 @@ public class RoomRepository {
 //            return new NullRoom();
             throw e;
         }
+    }
+
+    public void save(Room room) {
+        entityManager.persist(room);
     }
 }

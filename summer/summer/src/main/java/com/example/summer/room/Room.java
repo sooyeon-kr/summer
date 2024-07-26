@@ -1,9 +1,14 @@
 package com.example.summer.room;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Room {
+    @Id
+    private int id;
     private String type;
     private int price;
-    private int id;
     private int capacity;
 
     public Room(String type, int price, int id, int capacity) {
