@@ -1,8 +1,10 @@
 package com.example.summer.user;
 
+import org.springframework.http.ResponseEntity;
+
 public class User {
-    private String id;
-    private String pw;
+    private final String id;
+    private final String pw;
     private String nickname;
     private String email;
 

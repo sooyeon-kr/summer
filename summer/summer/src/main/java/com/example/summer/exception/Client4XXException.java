@@ -22,4 +22,6 @@ public class Client4XXException extends RuntimeException {
     public int getHttpStatusCode() {
         return httpStatusCode;
     }
+
+
 }

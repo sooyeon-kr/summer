@@ -1,15 +1,20 @@
 package com.example.summer.room;
 
 import com.example.summer.exception.RoomNotFoundException;
+import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RoomService {
-    @Autowired
-    private RoomRepository roomRepository;
+    private final RoomRepository roomRepository;
 
-    public Room getRoom(int id){
+    @Autowired
+    public RoomService(RoomRepository roomRepository){
+        this.roomRepository = roomRepository;
+    }
+
+    public Room getRoom(int id) {
         return roomRepository.getRoom(id);
 //        try{
 //            return roomRepository.getRoom(id);
