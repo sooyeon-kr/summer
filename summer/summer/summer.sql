@@ -5,3 +5,4 @@ CREATE TABLE room(
     capacity SMALLINT,
     PRIMARY KEY (id)
 );
+

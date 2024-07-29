@@ -27,16 +27,16 @@ public class RoomRepository {
     }
 
     public Room getRoom(int id)  {
-
-        Room foundRoom = roomTable.get(id);
-        try{
-            if(foundRoom != null) return foundRoom;
-            throw new RoomNotFoundException();
-        }catch (RoomNotFoundException e){
-            System.out.println(e.getMessage());
-//            return new NullRoom();
-            throw e;
-        }
+        return entityManager.find(Room.class, id);
+//        Room foundRoom = roomTable.get(id);
+//        try{
+//            if(foundRoom != null) return foundRoom;
+//            throw new RoomNotFoundException();
+//        }catch (RoomNotFoundException e){
+//            System.out.println(e.getMessage());
+////            return new NullRoom();
+//            throw e;
+//        }
     }
 
     public void save(Room room) {

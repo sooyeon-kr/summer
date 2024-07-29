@@ -1,6 +1,7 @@
 package com.example.summer.room;
 
 import com.example.summer.exception.RoomNotFoundException;
+import jakarta.transaction.Transactional;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class RoomService {
 
     }
 
+    @Transactional
     public void saveRoom(Room room) {
         roomRepository.save(room);
 
