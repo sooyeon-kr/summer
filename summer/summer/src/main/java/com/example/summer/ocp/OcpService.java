@@ -16,10 +16,10 @@ public class OcpService {
         this.ocpRepository = ocpRepository;
     }
 
-    public void method1(){
-        ocpRepository.method1();
+    public String method1(){
+        return ocpRepository.method1();
     }
-    public void method2(){
-        ocpRepository.method2();
+    public String method2(){
+        return ocpRepository.method2();
     }
 }

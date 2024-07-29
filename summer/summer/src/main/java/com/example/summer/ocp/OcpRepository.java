@@ -1,6 +1,6 @@
 package com.example.summer.ocp;
 
 public interface OcpRepository {
-    void method1();
-    void method2();
+    String method1();
+    String method2();
 }
