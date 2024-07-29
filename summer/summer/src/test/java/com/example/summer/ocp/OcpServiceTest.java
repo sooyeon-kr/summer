@@ -9,10 +9,15 @@ class OcpServiceTest {
 
     @Test
     public void testOcpService() {
-        OcpARepository ocpARepository = new OcpARepository();
-        OcpService ocpService = new OcpService(ocpARepository);
-        ocpService.method1();
-        ocpService.method2();
-        assertEquals(ocpService.method1(), ocpARepository.method1());
+        
+        // 개발자
+//        OcpARepository ocpARepository = new OcpARepository();
+//        OcpBRepository ocpBRepository = new OcpBRepository();
+//        OcpService ocpService = new OcpService(ocpARepository);
+
+        OcpService ocpService = new OcpService();
+
+        ocpService.callMethod1();
+        ocpService.callMethod2();
     }
 }

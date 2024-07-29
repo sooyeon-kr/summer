@@ -1,8 +1,9 @@
 package com.example.summer.ocp;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-
+@Component
 public class OcpARepository implements OcpRepository {
     @Override
     public String method1() {

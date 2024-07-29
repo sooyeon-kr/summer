@@ -1,5 +1,9 @@
 package com.example.summer.ocp;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class OcpService {
     /*
     * OcpARepository를 쓰다가
@@ -11,15 +15,18 @@ public class OcpService {
      *
      * OcpService의 코드는 변경되지 않고 OcpRepository들을 바꿔서 쓸 수 있게!
     * */
-    private final OcpRepository ocpRepository;
-    public OcpService(OcpRepository ocpRepository) {
-        this.ocpRepository = ocpRepository;
-    }
+    @Autowired
+    private OcpRepository ocpRepository;
 
-    public String method1(){
+//
+//    public OcpService(OcpRepository ocpRepository) {
+//        this.ocpRepository = ocpRepository;
+//    }
+
+    public String callMethod1(){
         return ocpRepository.method1();
     }
-    public String method2(){
+    public String callMethod2(){
         return ocpRepository.method2();
     }
 }
