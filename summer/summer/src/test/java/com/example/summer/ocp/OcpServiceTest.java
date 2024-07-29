@@ -3,8 +3,10 @@ package com.example.summer.ocp;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
 
-
+@SpringBootTest
 class OcpServiceTest {
 
     @Test
