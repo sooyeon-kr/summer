@@ -28,9 +28,7 @@ public class RoomService {
         
 //        어디에 객체 변환을 넣어야 둘까
 //2번에 둔다는 것은 Repository에 두기 직전에 바뀐다는 것
-        Room room = roomRegisterReq.toEntity();
-    
-        roomRepository.save(room);
+        roomRepository.save(roomRegisterReq.toEntity());
 
     }
     public Room getRoom(int id) {
