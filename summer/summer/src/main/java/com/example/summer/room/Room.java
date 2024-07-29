@@ -11,6 +11,12 @@ public class Room {
     private int price;
     private int capacity;
 
+    public Room(String type, int price,  int capacity) {
+        this.type = type;
+        this.price = price;
+        this.capacity = capacity;
+    }
+
     public Room(String type, int price, int id, int capacity) {
         this.type = type;
         this.price = price;

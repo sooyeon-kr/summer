@@ -26,6 +26,10 @@ public class RoomRepository {
         this.entityManager = entityManager;
     }
 
+    public void save(Room room) {
+        entityManager.persist(room);
+    }
+
     public Room getRoom(int id)  {
         return entityManager.find(Room.class, id);
 //        Room foundRoom = roomTable.get(id);
@@ -39,7 +43,5 @@ public class RoomRepository {
 //        }
     }
 
-    public void save(Room room) {
-        entityManager.persist(room);
-    }
+
 }

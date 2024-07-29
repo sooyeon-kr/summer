@@ -1,5 +1,6 @@
 package com.example.summer.room;
 
+import com.example.summer.room.dto.RoomRegisterReq;
 import java.sql.SQLException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,8 @@ public class RoomController {
     private RoomService roomService;
 
     @PostMapping("/rooms")
-    public void saveRoom(@RequestBody Room room) {
-       roomService.saveRoom(room);
+    public void saveRoom(@RequestBody RoomRegisterReq roomRegisterReq) {
+       roomService.saveRoom(roomRegisterReq);
     }
 
     @RequestMapping(value = "/rooms/{id}", method = RequestMethod.GET)
