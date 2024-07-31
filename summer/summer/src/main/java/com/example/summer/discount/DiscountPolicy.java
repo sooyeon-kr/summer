@@ -9,4 +9,5 @@ public abstract class DiscountPolicy {
     public int discount(int price) {
         return price * (1-DISCOUNTED_PERCENT);
     }
+
 }

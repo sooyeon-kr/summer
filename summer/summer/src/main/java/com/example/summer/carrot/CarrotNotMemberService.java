@@ -1,25 +1,16 @@
 package com.example.summer.carrot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CarrotNotMemberService implements CarrotService {
+public class CarrotNotMemberService extends CarrotService{
 
-    DiscountNotMemberPolicy discountNotMemberPolicy;
 
     @Autowired
-    CarrotNotMemberService(DiscountNotMemberPolicy discountNotMemberPolicy) {
-        this.discountNotMemberPolicy = discountNotMemberPolicy;
+    CarrotNotMemberService(DiscountPolicy discountPolicy) {
+        super(discountPolicy);
     }
 
-    public int calDiscountedPrice() {
-        return discountNotMemberPolicy.getJohang();
-
-    }
-
-    @Override
-    public int calcDiscountedPrice() {
-        return 0;
-    }
 }
