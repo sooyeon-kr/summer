@@ -1,4 +1,5 @@
 package com.example.summer.carrot;
 
-public class CarrotService {
+public interface CarrotService {
+    int calcDiscountedPrice();
 }

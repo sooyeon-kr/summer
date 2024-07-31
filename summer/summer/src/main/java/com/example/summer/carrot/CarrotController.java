@@ -28,7 +28,7 @@ public class CarrotController {
         if(isMember(id)){
             return carrotMemberService.calcDiscountedPrice();
         }else {
-            return carrotNotMemberService.calDiscountedPrice();
+            return carrotNotMemberService.calcDiscountedPrice();
         }
     }
 
