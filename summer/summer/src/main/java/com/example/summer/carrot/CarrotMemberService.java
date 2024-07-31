@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 public class CarrotMemberService extends CarrotService{
 
     @Autowired
-    public CarrotMemberService(DiscountPolicy discountPolicy){
-        super(discountPolicy);
+    public CarrotMemberService(DiscountMemberPolicy discountMemberPolicy){
+        super(discountMemberPolicy);
     }
 
 }

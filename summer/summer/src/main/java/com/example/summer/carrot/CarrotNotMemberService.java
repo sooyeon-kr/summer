@@ -9,8 +9,8 @@ public class CarrotNotMemberService extends CarrotService{
 
 
     @Autowired
-    CarrotNotMemberService(DiscountPolicy discountPolicy) {
-        super(discountPolicy);
+    CarrotNotMemberService(DiscountNotMemberPolicy discountNotMemberPolicy) {
+        super(discountNotMemberPolicy);
     }
 
 }
