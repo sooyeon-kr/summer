@@ -1,6 +1,6 @@
 package com.example.summer.isp;
 
-public class MarshallSpeaker implements BluetoothSpeaker{
+public class MarshallSpeaker implements BluetoothAISpeaker {
 
     @Override
     public void connectBluetooth() {
