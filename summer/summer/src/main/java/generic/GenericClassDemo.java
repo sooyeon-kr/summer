@@ -21,6 +21,11 @@ public class GenericClassDemo {
         BoxGeneric<Component> boxGenericComponent = new BoxGeneric<Component>();
         boxGenericComponent.t = new Component();
         System.out.println(boxGenericComponent.t.sayHi());
+
+        String str1 = (String) boxObject.obj; // 런타임 시점에 에러 잡음
+        String str2 = (String) boxGenericComponent.t; // 컴파일 시점에서 에러 잡음
+
+
     }
 }
 class Component {
@@ -31,8 +36,10 @@ class Component {
 }
 class BoxGeneric<T>{
     T t;
+    String field;
 }
 
 class BoxObject{
     public static Object obj;
+    String field;
 }
