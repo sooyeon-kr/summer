@@ -1,7 +1,22 @@
 package generic;
 
 public class GenericMethodDemo {
+    static class innerClass<T>{
+        T innerMember;
+    }
     public static void main(String[] args) {
+        ClassWithGenericMethod<Integer> classWithGenericMethod = new ClassWithGenericMethod<>();
+        classWithGenericMethod.genericMethod(7, 8);
+        classWithGenericMethod.<Integer>genericMethod(7, 8);
+        classWithGenericMethod.<Long>genericMethod(7L, 8L);
+
+//        타입 추론 한 것
+//        classWithGenericMethod.<Long>genericMethod(7L, 8L);
+        classWithGenericMethod.genericMethod(7L, 8L);
+        classWithGenericMethod.genericMethod(7, "*");
+        classWithGenericMethod.genericMethod("88", "**");
+
+
 
     }
 }
@@ -48,6 +63,14 @@ class GenericClass<C>{
 }
 class ClassWithGenericMethod<T> {
     T t; // 클래스단에서 받아온 T(제네릭 클래스가 받아온 T)
+
+
+    /**
+     *
+     *
+     *
+     */
+
 
 //    나 메소드 안에서 제네릭 따로 쓸거야,
 //    나머지 셋이 그 따로 쓰는 T;
