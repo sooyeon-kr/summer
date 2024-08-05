@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 public class UsersController {
 
@@ -23,7 +25,11 @@ BindingResult bindingResult;
     Errors errors;
     @PostMapping
     public ResponseEntity<?> join(@RequestBody @Valid UserJoinReq userJoinReq, Errors errors){
-        usersService.handleErrors(errors);
+
+        if(errors.hasErrors()){
+            Map<String, String> errorMessages = usersService.handleErrors(errors);
+            return ResponseEntity.badRequest().body(errorMessages);
+        }
 
         return ResponseEntity.ok().body(userJoinReq);
     }

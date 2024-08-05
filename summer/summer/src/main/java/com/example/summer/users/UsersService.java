@@ -5,16 +5,22 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class UsersService {
     public String traceError(BindingResult bindingResult) {
         return bindingResult.getFieldError().getDefaultMessage();
     }
 
-    public void handleErrors(Errors errors) {
+    public Map<String, String> handleErrors(Errors errors) {
+        Map<String, String> errorMessages = new HashMap<>();
         for(FieldError fieldError : errors.getFieldErrors()){
             String errorField = fieldError.getField();
-            System.out.println("errorField : " + errorField);
+            String errorMessage = fieldError.getDefaultMessage();
+            errorMessages.put(errorField, errorMessage);
         }
+        return errorMessages;
     }
 }
