@@ -23,10 +23,7 @@ BindingResult bindingResult;
     Errors errors;
     @PostMapping
     public ResponseEntity<?> join(@RequestBody @Valid UserJoinReq userJoinReq, Errors errors){
-        for(FieldError fieldError : errors.getFieldErrors()){
-            String errorField = fieldError.getField();
-            System.out.println("errorField : " + errorField);
-        }
+        usersService.handleErrors(errors);
 
         return ResponseEntity.ok().body(userJoinReq);
     }
