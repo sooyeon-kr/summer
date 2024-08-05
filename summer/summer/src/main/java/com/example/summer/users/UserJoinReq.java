@@ -5,11 +5,19 @@ import lombok.Getter;
 
 @Getter
 public class UserJoinReq {
-    @NotBlank(message="아이디는 필수 입력입니다.")
+    @NotBlank(message="id is required")
     String id;
 
-    @NotBlank(message="비밀번호는 필수 입력입니다.")
+    @NotBlank(message="pw is required")
     String pw;
     String name;
     String email;
+
+    UserJoinReq(String id, String pw, String name, String email) {
+        this.id = id;
+        this.pw = pw;
+        this.name = name;
+        this.email = email;
+    }
+    UserJoinReq(){}
 }
