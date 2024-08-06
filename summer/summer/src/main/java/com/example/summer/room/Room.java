@@ -3,6 +3,7 @@ package com.example.summer.room;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+
 @Entity
 public class Room {
     @Id

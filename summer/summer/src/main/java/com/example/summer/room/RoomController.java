@@ -2,6 +2,8 @@ package com.example.summer.room;
 
 import com.example.summer.room.dto.RoomRegisterReq;
 import java.sql.SQLException;
+
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

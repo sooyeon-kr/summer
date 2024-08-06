@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 
-@WebFilter(urlPatterns = {"/*"})
+//@WebFilter(urlPatterns = {"/*"})
 public class MyFilter implements Filter {
 	
 	@Override

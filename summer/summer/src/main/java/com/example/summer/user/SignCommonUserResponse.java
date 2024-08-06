@@ -1,17 +1,17 @@
 package com.example.summer.user;
 
 public class SignCommonUserResponse {
-    private String nickname;
+    private String name;
 
-    SignCommonUserResponse(String nickname) {
-        this.nickname = nickname;
+    SignCommonUserResponse(String name) {
+        this.name = name;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
     public static SignCommonUserResponse from(User user) {
-        return new SignCommonUserResponse(user.getNickname());
+        return new SignCommonUserResponse(user.getName());
     }
 }

@@ -1,17 +1,28 @@
 package com.example.summer.user;
 
-import org.springframework.http.ResponseEntity;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
 public class User {
-    private final String id;
-    private final String pw;
-    private String nickname;
+    @Setter
+    private String id;
+    @NotBlank
+    @Min(8)
+    private String pw;
+    @NotBlank
+    private String name;
+    @Email
     private String email;
 
-    public User(String id, String pw, String nickname, String email) {
+    public User(String id, String pw, String name, String email) {
         this.id = id;
         this.pw = pw;
-        this.nickname = nickname;
+        this.name = name;
         this.email = email;
     }
 
@@ -19,17 +30,6 @@ public class User {
         this.id = id;
         this.pw = pw;
     }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPw(){
-        return pw;
-    }
-
-    public String getNickname(){
-        return nickname;
-    }
+    public User() {}
 
 }
