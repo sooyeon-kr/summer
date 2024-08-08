@@ -18,7 +18,7 @@ public class RoomController {
     @Autowired
     private RoomService roomService;
 
-    @PostMapping("/rooms")
+    @PostMapping( "/rooms")
     public void saveRoom(@RequestBody RoomRegisterReq roomRegisterReq) {
        roomService.saveRoom(roomRegisterReq);
     }
