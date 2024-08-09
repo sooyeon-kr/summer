@@ -17,7 +17,7 @@ public class ChildRes {
     }
 
     public static ChildRes from(Child child){
-        return new ChildRes(child.getId(), child.getName(), child.getParent());
+        return new ChildRes(child.getId(), child.getName());
     }
 
 
